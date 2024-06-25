@@ -1,0 +1,22 @@
+name: Workflow demo
+
+on:
+   workflow_dispatch:
+    inputs:
+      loglevel:
+        description: Logging
+        type: choice
+        default: debugging
+        options:
+          - info
+          - warning
+          - debugging
+jobs:
+  myJob:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [dev,qa,prod]
+        node: [15,30]
+    steps:
+      -name: 
